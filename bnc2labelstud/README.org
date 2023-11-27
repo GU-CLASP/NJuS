@@ -1,0 +1,12 @@
+To install, run
+
+#+begin_src sh
+yarn
+#+end_src
+
+
+Example of shell script to generate JSON:
+
+#+begin_src sh
+  id=FLK t=251; yarn exec ts-node src/main.ts -- $id $t > data/$id-$t.json
+#+end_src

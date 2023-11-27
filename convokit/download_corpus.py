@@ -12,8 +12,8 @@ for conv_id in conv_ids:
     utt_ids = conv.get_utterance_ids()
     filename = "data/reddit-corpus-small/{}-{}.tsv".format(conv.retrieve_meta('subreddit'), conv_id)
     print("writing to:", filename)
-    with open(filename, "w") as f:
-        for utt_id in utt_ids:
-            f.write("{}\t{}\n".format(corpus.get_utterance(utt_id).speaker.id,
-                                      corpus.get_utterance(utt_id).text))
+    conv.get_utterances_dataframe().to_csv(filename, sep="\t")
+        # for utt_id in utt_ids:
+        #     f.write("{}\t{}\n".format(corpus.get_utterance(utt_id).speaker.id,
+        #                               corpus.get_utterance(utt_id).text))
 
